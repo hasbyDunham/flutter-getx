@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+
+import 'package:get/get.dart';
+import 'package:myapp/app/modules/biodata/views/biodata_view.dart';
+import 'package:myapp/app/modules/counter/views/counter_view.dart';
+
+import '../controllers/home_controller.dart';
+
+class HomeView extends GetView<HomeController> {
+  const HomeView({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('HomeView'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Home View'),
+            ElevatedButton(
+              onPressed: () {
+                // Get.toNamed('/counter');
+                Get.to(() => CounterView());
+              },
+              child: Text('Counter View'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Get.toNamed('/counter');
+                Get.to(() => BiodataView());
+              },
+              child: Text('Biodata View'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
